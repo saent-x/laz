@@ -1,0 +1,29 @@
+[package]
+name = "laz_server"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/yourusername/laz"
+homepage = "https://github.com/yourusername/laz"
+documentation = "https://docs.rs/laz"
+description = "Server-side RPC framework for Loco.rs with automatic type generation"
+keywords = ["rpc", "loco", "axum", "server", "type-safe"]
+categories = ["web-programming", "development-tools"]
+
+[dependencies]
+laz_types = { path = "../laz_types", version = "0.1.0" }
+laz_server_macros = { path = "../laz_server_macros", version = "0.1.0" }
+laz_schema_derive = { path = "../laz_schema_derive", version = "0.1.0" }
+loco-rs = "0.16"
+axum = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+thiserror = "1.0"
+tracing = "0.1"
+inventory = "0.3"
+async-trait = "0.1"
+
+[dev-dependencies]
+tokio = { version = "1.0", features = ["full"] }

@@ -1,0 +1,27 @@
+[package]
+name = "laz_schema_derive"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/yourusername/laz"
+homepage = "https://github.com/yourusername/laz"
+documentation = "https://docs.rs/laz"
+description = "Procedural macro for deriving LazSchema from Rust types"
+keywords = ["rpc", "schema", "derive", "macro", "loco"]
+categories = ["development-tools"]
+
+[lib]
+proc-macro = true
+
+[dependencies]
+laz_types = { path = "../laz_types", version = "0.1.0" }
+proc-macro2 = "1.0"
+quote = "1.0"
+syn = { version = "2.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+inventory = "0.3"
+
+[dev-dependencies]
+tokio = { version = "1.0", features = ["full"] }

@@ -1,0 +1,26 @@
+[package]
+name = "laz_client"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/yourusername/laz"
+homepage = "https://github.com/yourusername/laz"
+documentation = "https://docs.rs/laz"
+description = "Type-safe RPC client for Rust applications with automatic code generation"
+keywords = ["rpc", "client", "type-safe", "codegen", "http"]
+categories = ["network-programming", "web-programming", "development-tools"]
+
+[dependencies]
+laz_types = { path = "../laz_types", version = "0.1.0" }
+laz_client_macros = { path = "../laz_client_macros", version = "0.1.0" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0"
+tracing = "0.1"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["json"] }

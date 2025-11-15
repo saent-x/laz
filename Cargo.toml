@@ -1,0 +1,60 @@
+[package]
+name = "laz"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/yourusername/laz"
+homepage = "https://github.com/yourusername/laz"
+documentation = "https://docs.rs/laz"
+description = "A type-safe RPC library for Rust with Loco.rs integration"
+keywords = ["rpc", "loco", "axum", "type-safe", "codegen"]
+categories = ["network-programming", "web-programming", "development-tools"]
+
+[features]
+default = []
+server = ["dep:laz_server", "dep:laz_server_macros", "dep:loco-rs", "dep:axum"]
+client = ["dep:laz_client", "dep:laz_client_macros"]
+schema = ["dep:laz_schema_derive"]
+full = ["server", "client", "schema"]
+
+[dependencies]
+# Core types (always included)
+laz_types = { version = "0.1.0", path = "laz_types" }
+
+# Server dependencies (optional)
+laz_server = { version = "0.1.0", path = "laz_server", optional = true }
+laz_server_macros = { version = "0.1.0", path = "laz_server_macros", optional = true }
+loco-rs = { version = "0.16", optional = true }
+axum = { version = "0.7", optional = true }
+
+# Client dependencies (optional)
+laz_client = { version = "0.1.0", path = "laz_client", optional = true }
+laz_client_macros = { version = "0.1.0", path = "laz_client_macros", optional = true }
+
+# Schema dependencies (optional)
+laz_schema_derive = { version = "0.1.0", path = "laz_schema_derive", optional = true }
+
+# Common dependencies
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "1.0"
+tracing = "0.1"
+proc-macro2 = "1.0"
+quote = "1.0"
+syn = { version = "2.0", features = ["full"] }
+inventory = "0.3"
+
+[dev-dependencies]
+tokio-test = "0.4"
+
+[workspace]
+members = [
+    "laz_types",
+    "laz_server",
+    "laz_client", 
+    "laz_server_macros",
+    "laz_client_macros",
+    "laz_schema_derive",
+]
+resolver = "2"
