@@ -1,8 +1,6 @@
 # Laz - Type-Safe RPC Library for Rust
 
-[![Crates.io](https://img.shields.io/crates/v/laz.svg)](https://crates.io/crates/laz)
-[![Documentation](https://docs.rs/laz/badge.svg)](https://docs.rs/laz)
-[![License](https://img.shields.io/crates/l/laz.svg)](https://github.com/saent-x/laz#license)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/status-WIP-yellow)](https://github.com/saent-x/laz)
 
 > **⚠️ Work in Progress**: Laz is currently under active development and is not yet ready for production use. APIs may change, and some features may be incomplete.
@@ -20,41 +18,41 @@ Laz is a comprehensive, type-safe RPC library for Rust that provides automatic c
 
 ## Installation
 
-Add Laz to your `Cargo.toml` with the features you need:
+Laz is not published to crates.io yet (the `laz` name there belongs to an unrelated LiDAR crate), so depend on it from Git and pick the features you need:
 
 ### For Server Applications (Loco.rs)
 
 ```toml
 [dependencies]
-laz = { version = "0.1.0", features = ["server"] }
+laz = { git = "https://github.com/saent-x/laz", features = ["server"] }
 ```
 
 ### For Client Applications
 
 ```toml
 [dependencies]
-laz = { version = "0.1.0", features = ["client"] }
+laz = { git = "https://github.com/saent-x/laz", features = ["client"] }
 ```
 
 ### For Schema Derivation
 
 ```toml
 [dependencies]
-laz = { version = "0.1.0", features = ["schema"] }
+laz = { git = "https://github.com/saent-x/laz", features = ["schema"] }
 ```
 
 ### For Full Stack Development
 
 ```toml
 [dependencies]
-laz = { version = "0.1.0", features = ["full"] }
+laz = { git = "https://github.com/saent-x/laz", features = ["full"] }
 ```
 
 ### Core Types Only
 
 ```toml
 [dependencies]
-laz = "0.1.0"
+laz = { git = "https://github.com/saent-x/laz" }
 ```
 
 ## Quick Start
@@ -213,17 +211,11 @@ pub async fn update_user(id: u64, updates: UserUpdates) -> Result<User, RpcError
 
 ## Examples
 
-Check out the `examples/` directory for complete working examples:
-
-- **[`examples/server`](examples/server)**: Full Loco.rs server with RPC endpoints
-- **[`examples/client`](examples/client)**: Type-safe client application
-- **[`examples/shared_types`](examples/shared_types)**: Shared types between server and client
+Runnable examples (Loco.rs server, typed client, shared types) are being added. Until then, the snippets in this README are the reference.
 
 ## Documentation
 
-- **[API Documentation](https://docs.rs/laz)**: Comprehensive API documentation
-- **[Guide](https://github.com/saent-x/laz/wiki)**: Step-by-step usage guide
-- **[Examples](examples/)**: Working code examples
+- **API documentation**: run `cargo doc --open` in this repository
 
 ## Performance
 
